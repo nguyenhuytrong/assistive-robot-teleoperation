@@ -1,0 +1,20 @@
+running egg_info
+writing ../../build/ps5/ps5.egg-info/PKG-INFO
+writing dependency_links to ../../build/ps5/ps5.egg-info/dependency_links.txt
+writing entry points to ../../build/ps5/ps5.egg-info/entry_points.txt
+writing requirements to ../../build/ps5/ps5.egg-info/requires.txt
+writing top-level names to ../../build/ps5/ps5.egg-info/top_level.txt
+reading manifest file '../../build/ps5/ps5.egg-info/SOURCES.txt'
+writing manifest file '../../build/ps5/ps5.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+running install_data
+copying launch/ps5.launch.py -> /workspaces/ros2_ws/install/ps5/share/ps5/launch
+running install_egg_info
+removing '/workspaces/ros2_ws/install/ps5/lib/python3.10/site-packages/ps5-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build/ps5/ps5.egg-info to /workspaces/ros2_ws/install/ps5/lib/python3.10/site-packages/ps5-0.0.0-py3.10.egg-info
+running install_scripts
+Installing ps5_haptic script to /workspaces/ros2_ws/install/ps5/lib/ps5
+writing list of installed files to '/workspaces/ros2_ws/build/ps5/install.log'

@@ -1,0 +1,3 @@
+[console_scripts]
+ps5_haptic = ps5.ps5_haptic:main
+

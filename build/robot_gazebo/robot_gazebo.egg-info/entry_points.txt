@@ -1,0 +1,3 @@
+[console_scripts]
+teleop_key_control = robot_gazebo.teleop_key_control:main
+

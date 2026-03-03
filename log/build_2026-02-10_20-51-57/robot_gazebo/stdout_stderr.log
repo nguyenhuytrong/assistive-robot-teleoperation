@@ -1,0 +1,109 @@
+running develop
+running egg_info
+creating robot_gazebo.egg-info
+writing robot_gazebo.egg-info/PKG-INFO
+writing dependency_links to robot_gazebo.egg-info/dependency_links.txt
+writing entry points to robot_gazebo.egg-info/entry_points.txt
+writing requirements to robot_gazebo.egg-info/requires.txt
+writing top-level names to robot_gazebo.egg-info/top_level.txt
+writing manifest file 'robot_gazebo.egg-info/SOURCES.txt'
+reading manifest file 'robot_gazebo.egg-info/SOURCES.txt'
+writing manifest file 'robot_gazebo.egg-info/SOURCES.txt'
+running build_ext
+Creating /workspaces/ros2_ws/install/robot_gazebo/lib/python3.10/site-packages/robot-gazebo.egg-link (link to .)
+Installing teleop_key_control script to /workspaces/ros2_ws/install/robot_gazebo/lib/robot_gazebo
+
+Installed /workspaces/ros2_ws/build/robot_gazebo
+running symlink_data
+creating /workspaces/ros2_ws/install/robot_gazebo/share/ament_index
+creating /workspaces/ros2_ws/install/robot_gazebo/share/ament_index/resource_index
+creating /workspaces/ros2_ws/install/robot_gazebo/share/ament_index/resource_index/packages
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/resource/robot_gazebo -> /workspaces/ros2_ws/install/robot_gazebo/share/ament_index/resource_index/packages
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/package.xml -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo
+creating /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/launch
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/launch/spawn_objects.launch.py -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/launch
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/launch/spwan_model.launch.py -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/launch
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/launch/ros_ign_bridge.launch.py -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/launch
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/launch/spawn_model.launch.py -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/launch
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/launch/room_worlds.launch.py -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/launch
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/launch/worlds.launch.py -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/launch
+creating /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/urdf
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/urdf/lidar.gazebo.xacro -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/urdf
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/urdf/wheel.xacro -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/urdf
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/urdf/imu.gazebo.xacro -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/urdf
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/urdf/robot.gazebo.xacro -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/urdf
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/urdf/camera.gazebo.xacro -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/urdf
+creating /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/config
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/config/nav2_params.yaml -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/config
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/config/robot_config.yaml -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/config
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/config/slam.yaml -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/config
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/config/localization.yaml -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/config
+creating /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/worlds
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/worlds/empty.sdf -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/worlds
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/worlds/robocup_home.sdf -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/worlds
+creating /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/rviz
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/rviz/nav_nav2.rviz -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/rviz
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/rviz/slam.rviz -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/rviz
+creating /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/maps
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/maps/map_01.yaml -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/maps
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/maps/map_01.pgm -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/maps
+creating /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/launch/include
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/launch/include/slam.launch.py -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/launch/include
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/launch/include/localization.launch.py -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/launch/include
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/launch/include/navigation.launch.py -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/launch/include
+creating /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/meshes/sofa.dae -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/meshes/bed.dae -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/meshes/tea_table.dae -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/meshes/table.dae -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/meshes/cupboard.dae -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/meshes/bookshelft.dae -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/meshes/chair.dae -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/meshes/bottle.stl -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes
+creating /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes/bed
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/meshes/bed/Wood_Bamboo.jpg -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes/bed
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/meshes/bed/Carpet_Pattern_Squares_Multi.jpg -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes/bed
+creating /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes/bookshelft
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/meshes/bookshelft/Wood_Veneer_02.jpg -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes/bookshelft
+creating /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes/chair
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/meshes/chair/Wood_Cherry_Original.jpg -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes/chair
+creating /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes/cupboard
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/meshes/cupboard/Wood_Veneer_02.jpg -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes/cupboard
+creating /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes/sofa
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/meshes/sofa/Carpet_Loop_Pattern.jpg -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes/sofa
+creating /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes/table
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/meshes/tea_table/Wood_Cherry_Original.jpg -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes/table
+creating /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes/tea_table
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/meshes/tea_table/Wood_Cherry_Original.jpg -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes/tea_table
+creating /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes/wpr1
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/meshes/wpr1/forearm.dae -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes/wpr1
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/meshes/wpr1/palm.dae -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes/wpr1
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/meshes/wpr1/upperarm.dae -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes/wpr1
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/meshes/wpr1/torso.dae -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes/wpr1
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/meshes/wpr1/base.dae -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes/wpr1
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/meshes/wpr1/fingertip.dae -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes/wpr1
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/meshes/wpr1/finger.dae -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/meshes/wpr1
+creating /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/models
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/models/bookshelft.model -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/models
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/models/sofa.model -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/models
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/models/bed.model -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/models
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/models/kai_standing.model -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/models
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/models/tea_table.model -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/models
+creating /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/models/bed
+creating /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/models/bottles
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/models/bottles/red_bottle.model -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/models/bottles
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/models/bottles/green_bottle.model -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/models/bottles
+creating /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/models/cupboard
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/models/cupboard/cupboard_1.model -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/models/cupboard
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/models/cupboard/cupboard_0.model -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/models/cupboard
+creating /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/models/table
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/models/table/dinning_table_3.model -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/models/table
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/models/table/dinning_table_2.model -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/models/table
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/models/table/dinning_table_0.model -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/models/table
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/models/table/kitchen_table.model -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/models/table
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/models/table/dinning_table_1.model -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/models/table
+creating /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/models/chair
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/models/chair/chair_3.model -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/models/chair
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/models/chair/chair_1.model -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/models/chair
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/models/chair/chair_2.model -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/models/chair
+symbolically linking /workspaces/ros2_ws/build/robot_gazebo/models/chair/chair_0.model -> /workspaces/ros2_ws/install/robot_gazebo/share/robot_gazebo/models/chair

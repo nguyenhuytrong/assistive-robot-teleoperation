@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# 当期版本
+export VERSION="|V1.0.0|App_ROS2_1.0|2025-05-29|"
+# 雷达类型：A1/A2/C1/G4/S2L/LD14P/MS200
+export LIDAR_TYPE=MS200
+
+# 深度摄像头类型：ascamera/aurora/usb_cam
+export DEPTH_CAMERA_TYPE=aurora
+
+# ROSOrin_Mecanum/ROSOrin_Acker
+export MACHINE_TYPE=ROSOrin_Mecanum
+
+# 主从机设置：robot_xxx
+export HOST=/ #robot_1
+export MASTER=/ #robot_1
+
+# 语言设置，主要涉及语音部分：Chinese/English
+export ASR_LANGUAGE=Chinese
+export MIC_TYPE=xf
+
+export need_compile=False
+
+#export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+export ROS_DOMAIN_ID=0
+#export ROS_DOMAIN_ID=42 # Numbers from 0 to 232
+#export ROS_LOCALHOST_ONLY=1
+export CYCLONEDDS_URI=file:///etc/cyclonedds/config.xml
+
+echo -e "\033[32m----------------------------------------------
+当前环境是ROS2|The current environment is ROS2
+----------------------------------------------\033[0m"
+echo -e "|LIDAR|CAMERA|MIC|LANGUAGE|: \033[32m|$LIDAR_TYPE|$DEPTH_CAMERA_TYPE|$MIC_TYPE|$ASR_LANGUAGE|\033[0m"
+echo -e "MACHINE: \033[32m$MACHINE_TYPE\033[0m"
+echo -e "HOST:    \033[32m$HOST\033[0m"
+echo -e "MASTER:  \033[32m$MASTER\033[0m"
+echo -e "ROS_DOMAIN_ID: \033[32m$ROS_DOMAIN_ID\033[0m"
+echo -e "VERSION: \033[32m$VERSION\033[0m"

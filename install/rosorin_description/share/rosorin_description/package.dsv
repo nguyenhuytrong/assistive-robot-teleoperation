@@ -1,0 +1,9 @@
+source;share/rosorin_description/hook/pythonpath.ps1
+source;share/rosorin_description/hook/pythonpath.dsv
+source;share/rosorin_description/hook/pythonpath.sh
+source;share/rosorin_description/hook/ament_prefix_path.ps1
+source;share/rosorin_description/hook/ament_prefix_path.dsv
+source;share/rosorin_description/hook/ament_prefix_path.sh
+source;../../build/rosorin_description/share/rosorin_description/hook/pythonpath_develop.ps1
+source;../../build/rosorin_description/share/rosorin_description/hook/pythonpath_develop.dsv
+source;../../build/rosorin_description/share/rosorin_description/hook/pythonpath_develop.sh

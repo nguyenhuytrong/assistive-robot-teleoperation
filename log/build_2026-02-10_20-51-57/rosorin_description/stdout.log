@@ -1,0 +1,51 @@
+running develop
+running egg_info
+creating rosorin_description.egg-info
+writing rosorin_description.egg-info/PKG-INFO
+writing dependency_links to rosorin_description.egg-info/dependency_links.txt
+writing entry points to rosorin_description.egg-info/entry_points.txt
+writing requirements to rosorin_description.egg-info/requires.txt
+writing top-level names to rosorin_description.egg-info/top_level.txt
+writing manifest file 'rosorin_description.egg-info/SOURCES.txt'
+reading manifest file 'rosorin_description.egg-info/SOURCES.txt'
+writing manifest file 'rosorin_description.egg-info/SOURCES.txt'
+running build_ext
+Creating /workspaces/ros2_ws/install/rosorin_description/lib/python3.10/site-packages/rosorin-description.egg-link (link to .)
+
+Installed /workspaces/ros2_ws/build/rosorin_description
+running symlink_data
+creating /workspaces/ros2_ws/install/rosorin_description/share/ament_index
+creating /workspaces/ros2_ws/install/rosorin_description/share/ament_index/resource_index
+creating /workspaces/ros2_ws/install/rosorin_description/share/ament_index/resource_index/packages
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/resource/rosorin_description -> /workspaces/ros2_ws/install/rosorin_description/share/ament_index/resource_index/packages
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/package.xml -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description
+creating /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/launch
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/launch/display.launch.py -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/launch
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/launch/robot_description.launch.py -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/launch
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/launch/rviz.launch.py -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/launch
+creating /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/urdf
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/urdf/materials.xacro -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/urdf
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/urdf/rosorin.xacro -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/urdf
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/urdf/ascamera.xacro -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/urdf
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/urdf/dabai.xacro -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/urdf
+creating /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/rviz
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/rviz/view.rviz -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/rviz
+creating /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/meshes
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/meshes/left_back_wheel_link_collision.stl -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/meshes
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/meshes/left_back_wheel_link.stl -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/meshes
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/meshes/right_back_wheel_link_collision.stl -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/meshes
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/meshes/left_front_wheel_link.stl -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/meshes
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/meshes/depth_camera_link_collision.stl -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/meshes
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/meshes/mic_link_collision.stl -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/meshes
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/meshes/depth_camera_link.stl -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/meshes
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/meshes/dabai_cam_link_collision.stl -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/meshes
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/meshes/lidar_link.stl -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/meshes
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/meshes/right_front_wheel_link.stl -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/meshes
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/meshes/dabai_cam_link.STL -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/meshes
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/meshes/base_link.stl -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/meshes
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/meshes/right_back_wheel_link.stl -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/meshes
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/meshes/mic_link.stl -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/meshes
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/meshes/base_link_collision.stl -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/meshes
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/meshes/left_front_wheel_link_collision.stl -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/meshes
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/meshes/right_front_wheel_link_collision.stl -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/meshes
+symbolically linking /workspaces/ros2_ws/build/rosorin_description/meshes/lidar_link_collision.stl -> /workspaces/ros2_ws/install/rosorin_description/share/rosorin_description/meshes
