@@ -28,6 +28,7 @@ setup(
     entry_points={
         'console_scripts': [
             'ps5_haptic = ps5.ps5_haptic:main',
+            'ps5_control_node = ps5.ps5_controller:main',
         ],
     },
 )
