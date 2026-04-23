@@ -79,7 +79,7 @@ The system is a **bidirectional human–robot interaction framework** built on R
 
 ---
 
-## 🧩 Module Deep Dives
+##  Module Deep Dives
 
 <details>
 <summary><b>🛡️ Shared Autonomy Controller (SAC)</b></summary>
@@ -196,7 +196,7 @@ Signal conditioning: ±0.25 deadzone filter + 30% linear interpolation smoothing
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 <div align="center">
 
@@ -216,7 +216,7 @@ Signal conditioning: ±0.25 deadzone filter + 30% linear interpolation smoothing
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -235,31 +235,23 @@ pip install pydualsense opencv-python Pillow numpy
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/assistive-robot-teleoperation.git
+git clone https://github.com/nguyenhuytrong/assistive-robot-teleoperation.git
 cd assistive-robot-teleoperation
 
 # Build the ROS 2 workspace
 colcon build
 source install/setup.bash
+
+# Install libraries in requirement.txt
+pip install -r requirement.txt
 ```
 
 ### Running the System
 
 ```bash
-# 1. Launch the Shared Autonomy Controller
-ros2 run teleoperation sac_node
-
-# 2. Launch PS5 controller node
-ros2 run teleoperation ps5_controller
-
-# 3. Launch haptic feedback node
-ros2 run teleoperation haptic_controller
-
-# 4. Launch computer vision segmentation
-ros2 run teleoperation vision_segmentation
-
-# 5. (Optional) Visualize in RViz2
-rviz2 -d config/teleoperation.rviz
+ros2 launch ps5 ps5.launch.oy
+ros2 launch sac sac.launch.py
+ros2 launch cv cv.launch.py
 ```
 
 > **DualSense Setup:** Connect the controller via USB or Bluetooth. On first run, the lightbar should illuminate **green**. If it doesn't, check `/dev/hidraw` permissions:
@@ -269,7 +261,7 @@ rviz2 -d config/teleoperation.rviz
 
 ---
 
-## 📊 Results
+##  Results
 
 The system was evaluated on the **ROSOrin** mobile platform:
 
@@ -284,26 +276,8 @@ The system was evaluated on the **ROSOrin** mobile platform:
 ---
 
 
-## 👥 Team
 
-| Name | Role |
-|---|---|
-| **Jason Stephane** | Systems Integration & SAC Development |
-| **Hug Nghia** | Computer Vision & TensorRT Optimization |
-| **Hug Trong** | Haptic Feedback Design |
-| **Keshav** | Controller Interface & Signal Processing |
-| **Silas** | ROS Architecture & Cross-platform Portability |
-| **Godwyll Aikins** | Testing & Evaluation |
-| **Dr. Gans** | Faculty Advisor |
-
-> **Institution:** University of Texas at Arlington Research Institute (UTARI)  
-> **Department:** Automation and Intelligent Systems  
-> **Completed:** April 2026
-
----
-
-
-## 📄 License
+## License
 
 This project was developed for academic research purposes at the University of Texas at Arlington.
 
