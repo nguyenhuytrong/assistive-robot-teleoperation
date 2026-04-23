@@ -20,7 +20,7 @@
 ---
 
 ## Project Overview
-[▶️ Click to Watch Demo](https://github.com/nguyenhuytrong/assistive-robot-teleoperation/issues/1#issue-4319049140)
+[▶️ Click to Watch Demo](https://drive.google.com/file/d/12WndrZ-ZZyDsB1BFT-VslWcZvzAbbmfS/view?usp=sharing)
 
 This project presents an advanced **assistive robot teleoperation framework** designed to empower individuals who are **blind or visually impaired (BVI)** to safely and confidently control mobile robots. Traditional teleoperation systems create high cognitive load and anxiety for BVI users due to their reliance on visual feedback. This system solves that problem by fusing multi-modal sensory data into a rich, intuitive **tactile experience**.
 
