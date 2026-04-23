@@ -1,0 +1,24 @@
+
+# Core Python Utilities
+numpy>=1.24.0
+scipy>=1.11.0
+Pillow>=10.0.0
+typing_extensions>=4.0.0
+
+# Computer Vision
+opencv-python>=4.8.0
+
+# Deep Learning
+torch>=2.0.0
+torchvision>=0.15.0
+
+# TensorRT / ONNX / CUDA
+tensorrt>=8.6.0
+pycuda>=2022.2
+onnxruntime-gpu>=1.16.0
+
+# HuggingFace Transformers
+transformers>=4.35.0
+
+# PS5 DualSense Controller
+pydualsense>=0.7.0

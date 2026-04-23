@@ -1,1 +1,7 @@
-/workspaces/ros2_ws/build/robot_gazebo/maps/map_01.yaml
+image: map_01.pgm
+mode: trinary
+resolution: 0.05
+origin: [-5.04, -4.07, 0]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.25

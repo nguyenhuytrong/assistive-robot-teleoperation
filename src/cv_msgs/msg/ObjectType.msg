@@ -1,0 +1,2 @@
+bool human
+bool box

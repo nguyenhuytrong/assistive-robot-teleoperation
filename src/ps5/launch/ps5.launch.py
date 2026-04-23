@@ -4,7 +4,7 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    # Khai báo node joy_node để đọc dữ liệu từ tay cầm PS5
+    # Read data from ps5
     joy_node1 = Node(
         package='joy',
         executable='joy_node',
@@ -19,14 +19,23 @@ def generate_launch_description():
         ]
     )
 
+    # Transform msg from joy to cmd_vel
     ps5_control_node = Node(
         package='ps5',
         executable='ps5_control_node',
         name='ps5_control_node',
     )
 
+    # Haptic feedback
+    ps5_haptic_node = Node(
+        package='ps5',
+        executable='ps5_haptic',
+        name='ps5_haptic_node',
+        output='screen',
+    )
+
     return LaunchDescription([
         joy_node1,
         ps5_control_node,
-        #ps5_haptic_node
+        ps5_haptic_node,
     ])

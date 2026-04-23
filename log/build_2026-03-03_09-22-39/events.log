@@ -1,4 +1,0 @@
-[0.000000] (-) TimerEvent: {}
-[0.000380] (-) JobUnselected: {'identifier': 'robot_gazebo'}
-[0.000538] (-) JobUnselected: {'identifier': 'rosorin_description'}
-[0.000923] (-) EventReactorShutdown: {}

@@ -1,1 +1,0 @@
-/workspaces/ros2_ws/src/simulations/robot_gazebo/launch/spawn_objects.launch.py

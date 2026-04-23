@@ -1,1 +1,0 @@
-/workspaces/ros2_ws/src/simulations/rosorin_description/launch/rviz.launch.py

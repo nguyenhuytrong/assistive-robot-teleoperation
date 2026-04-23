@@ -1,1 +1,0 @@
-/workspaces/ros2_ws/src/simulations/robot_gazebo/launch/ros_ign_bridge.launch.py

@@ -13,6 +13,7 @@ ps5/__init__.py
 ps5/haptic_controller.py
 ps5/ps5_controller.py
 ps5/ps5_haptic.py
+ps5/test_haptic_input.py
 resource/ps5
 test/test_copyright.py
 test/test_flake8.py

@@ -22,7 +22,7 @@ function colcon_append_unique_value {
   $_all_values=""
   # iterate over existing values in the variable
   if ($_values) {
-    $_values.Split(";") | ForEach {
+    $_values.Split(":") | ForEach {
       # not an empty string
       if ($_) {
         # not a duplicate of _value
@@ -30,7 +30,7 @@ function colcon_append_unique_value {
           $_duplicate="1"
         }
         if ($_all_values) {
-          $_all_values="${_all_values};$_"
+          $_all_values="${_all_values}:$_"
         } else {
           $_all_values="$_"
         }
@@ -41,7 +41,7 @@ function colcon_append_unique_value {
   if (!$_duplicate) {
     # avoid leading separator
     if ($_all_values) {
-      $_all_values="${_all_values};${_value}"
+      $_all_values="${_all_values}:${_value}"
     } else {
       $_all_values="${_value}"
     }
@@ -72,13 +72,13 @@ function colcon_prepend_unique_value {
   $_all_values="$_value"
   # iterate over existing values in the variable
   if ($_values) {
-    $_values.Split(";") | ForEach {
+    $_values.Split(":") | ForEach {
       # not an empty string
       if ($_) {
         # not a duplicate of _value
         if ($_ -ne $_value) {
           # keep non-duplicate values
-          $_all_values="${_all_values};$_"
+          $_all_values="${_all_values}:$_"
         }
       }
     }
@@ -110,8 +110,7 @@ function colcon_package_source_powershell_script {
 # the prefix is two levels up from the package specific share directory
 $env:COLCON_CURRENT_PREFIX=(Get-Item $PSCommandPath).Directory.Parent.Parent.FullName
 
-colcon_package_source_powershell_script "$env:COLCON_CURRENT_PREFIX\share/robot_gazebo/hook/pythonpath.ps1"
-colcon_package_source_powershell_script "$env:COLCON_CURRENT_PREFIX\share/robot_gazebo/hook/ament_prefix_path.ps1"
-colcon_package_source_powershell_script "$env:COLCON_CURRENT_PREFIX\../../build/robot_gazebo/share/robot_gazebo/hook/pythonpath_develop.ps1"
+colcon_package_source_powershell_script "$env:COLCON_CURRENT_PREFIX/share/robot_gazebo/hook/pythonpath.ps1"
+colcon_package_source_powershell_script "$env:COLCON_CURRENT_PREFIX/share/robot_gazebo/hook/ament_prefix_path.ps1"
 
 Remove-Item Env:\COLCON_CURRENT_PREFIX

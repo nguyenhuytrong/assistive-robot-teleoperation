@@ -1,107 +1,143 @@
+#!/usr/bin/env python3
+import math
+import time
+from threading import Lock
+from typing import Optional, Tuple
+
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import LaserScan
-import math
+
 from ps5.haptic_controller import HapticController
 
- 
+
 class PS5HapticNode(Node):
+    """ROS2 node: LiDAR → haptic patterns via HapticController."""
+
+    DANGER  = 0.3  # m
+    WARNING = 0.7  # m
 
     def __init__(self):
         super().__init__('ps5_haptic_node')
-
+        
+        # Haptics
         self.haptic = HapticController()
+        
+        # LiDAR snapshot (thread-safe)
+        self._front = 99.0
+        self._left  = 99.0
+        self._right = 99.0
+        self._back  = 99.0
+        self._scan_lock = Lock()
+        
+        # Sector stability
+        self._current_sector: Optional[str] = None
+        self._sector_since = time.monotonic()
+        self._sector_hold = 0.20  # seconds
 
-        self.danger_zone = 0.25
-        self.warning_zone = 0.5
+        # Change to /scan if testing in simulation, keep /scan_raw for real robot
+        self.create_subscription(LaserScan, '/scan_raw', self.scan_callback, 10)
+        self.create_timer(0.05, self.update_haptic)  # 20Hz
+        
+        self.get_logger().info("PS5HapticNode: 4-sector sensing (Front, Left, Right, Back) ready")
 
-        self.front = 99
-        self.back = 99
-        self.left = 99
-        self.right = 99
+    def scan_callback(self, msg: LaserScan):
+        """Process LiDAR frame → update snapshot with 4 sectors."""
+        front = left = right = back = 99.0
 
-        self.create_subscription(
-            LaserScan,
-            '/scan',
-            self.scan_callback,
-            10
-        )
-
-        self.create_timer(0.05, self.update_haptic)
-
-    def scan_callback(self, msg):
-
-        ranges = msg.ranges
-        angle_min = msg.angle_min
-        angle_increment = msg.angle_increment
-
-        self.front = 99
-        self.back = 99
-        self.left = 99
-        self.right = 99
-
-        for i, r in enumerate(ranges):
-            if not (msg.range_min < r < msg.range_max):
+        for i, r in enumerate(msg.ranges):
+            # 1. Check data validity
+            if math.isinf(r) or math.isnan(r) or not (msg.range_min < r < msg.range_max):
                 continue
-            if math.isinf(r):
-                continue
+                
+            # 2. Calculate raw angle from LiDAR data
+            raw_angle = msg.angle_min + i * msg.angle_increment
+            
+            # 3. NORMALIZE ANGLE: Wrap to [-pi, pi] range
+            angle = math.atan2(math.sin(raw_angle), math.cos(raw_angle))
 
-            angle = angle_min + i * angle_increment
+            # 4. Classify into sectors based on normalized angle
+            if -0.349 < angle < 0.349:          # FRONT: ±20°
+                front = min(front, r)
+            elif 0.349 <= angle < 2.443:        # LEFT: 20° to 140°
+                left = min(left, r)
+            elif -2.443 < angle <= -0.349:      # RIGHT: -140° to -20°
+                right = min(right, r)
+            else:                               # BACK: Remaining 80°
+                back = min(back, r)
 
-            # FRONT (-15° → +15°)
-            if -0.26 < angle < 0.26:
-                self.front = min(self.front, r)
+        with self._scan_lock:
+            self._front = front
+            self._left = left
+            self._right = right
+            self._back = back
 
-            # LEFT (60° → 120°)
-            elif 1.05 < angle < 2.09:
-                self.left = min(self.left, r)
+    def get_scan_snapshot(self) -> Tuple[float, float, float, float]:
+        """Thread-safe LiDAR snapshot including the back sector."""
+        with self._scan_lock:
+            return self._front, self._left, self._right, self._back
 
-            # RIGHT (-120° → -60°)
-            elif -2.09 < angle < -1.05:
-                self.right = min(self.right, r)
+    def pick_sector(self, front: float, left: float, right: float, back: float) \
+                -> Tuple[Optional[str], float]:
+        """Pick stable sector with hysteresis, supporting the back zone."""
+        min_dist = min(front, left, right, back)
 
-            # BACK (|angle| > 165°)
-            elif abs(angle) > 2.88:
-                self.back = min(self.back, r)
+        # Safe zone → no haptic feedback
+        if min_dist >= self.WARNING:
+            self._current_sector = None
+            self._sector_since = time.monotonic()
+            return None, min_dist
 
-    def compute_intensity(self, dist):
-        if dist > self.warning_zone:
-            return 0
+        # Identify the closest candidate sector
+        if front <= min_dist:
+            candidate = 'front'
+        elif left <= min_dist:
+            candidate = 'left'
+        elif right <= min_dist:
+            candidate = 'right'
+        else:
+            candidate = 'back'
 
-        ratio = 1.0 - (dist / self.warning_zone)
-        return 255 * ratio
+        now = time.monotonic()
+        
+        # Same sector → keep
+        if candidate == self._current_sector:
+            return self._current_sector, min_dist
+        
+        # New sector but not stable yet → keep old (prevents flickering)
+        if now - self._sector_since < self._sector_hold:
+            return self._current_sector, min_dist
+        
+        # Switch to the new stable sector
+        self._current_sector = candidate
+        self._sector_since = now
+        return self._current_sector, min_dist
 
     def update_haptic(self):
+        """20Hz: LiDAR → haptic pattern."""
+        # Unpack all 4 values
+        front, left, right, back = self.get_scan_snapshot()
+        sector, min_dist = self.pick_sector(front, left, right, back)
 
-        min_dist = min(self.front, self.back, self.left, self.right)
-
-        if min_dist > self.warning_zone:
+        # SAFE: reset + green light
+        if sector is None or min_dist >= self.WARNING:
             self.haptic.reset()
-            self.haptic.ds.light.setColorI(0, 255, 0)
+            if self.haptic.available and self.haptic.ds is not None:
+                self.haptic.ds.light.setColorI(0, 255, 0)  # Green
             return
 
-        # PRIORITY: danger zone
-        if min_dist < self.danger_zone:
-            intensity = 255
-        else:
-            intensity = self.compute_intensity(min_dist)
+        # DANGER/WARNING: red light
+        if self.haptic.available and self.haptic.ds is not None:
+            self.haptic.ds.light.setColorI(255, 0, 0)  # Red                    
 
-        # Decide direction
-        if self.front == min_dist:
-            # Both motors strong & steady
-            self.haptic.vibrate_both(intensity, intensity)
+        if not self.haptic.available:
+            return
 
-        elif self.back == min_dist:
-            # Both motors but alternating pattern
-            self.haptic.vibrate_both(intensity, 0)
-
-        elif self.left == min_dist:
-            self.haptic.vibrate_left(intensity)
-
-        elif self.right == min_dist:
-            self.haptic.vibrate_right(intensity)
-
-        self.haptic.ds.light.setColorI(255, 0, 0)
+        # FIXED INTENSITIES → pick pattern
+        if min_dist >= self.DANGER:  # WARNING zone
+            self.haptic.pattern_warning(sector)
+        else:  # DANGER zone
+            self.haptic.pattern_danger(sector)
 
     def destroy_node(self):
         self.haptic.close()
@@ -111,7 +147,6 @@ class PS5HapticNode(Node):
 def main(args=None):
     rclpy.init(args=args)
     node = PS5HapticNode()
-
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:
