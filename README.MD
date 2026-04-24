@@ -13,7 +13,7 @@
 [![University](https://img.shields.io/badge/UTARI-UTA-003DA5)](https://www.uta.edu/research/institutes-and-centers/utari)
 
 > **Developed at the University of Texas at Arlington Research Institute (UTARI)**  
-> Department of Automation and Intelligent Systems · April 2026
+> Department of Automation and Intelligent Systems · Spring 2026
 
 </div>
 
