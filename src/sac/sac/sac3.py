@@ -295,7 +295,7 @@ class SharedAutonomyController(Node):
 
     def displayLaserSpecs(self):
         """Log LiDAR sensor specifications once at startup for diagnostics."""
-        self.get_logger().info('*** KAIROS+ Front Laser Specifications ***')
+        self.get_logger().info('*** ROSOrin+ Front Laser Specifications ***')
         self.get_logger().info(f'Minimum Angle in degrees: {math.degrees(self.front_minAngle)}')
         self.get_logger().info(f'Maximum Angle in degrees: {math.degrees(self.front_maxAngle)}')
         self.get_logger().info(f'Angle increment in degrees: {math.degrees(self.front_angIncrement)}')
