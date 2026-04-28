@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -------------------------------------------------------------------------------------------------
-# ROS 2 Humble port of sharedAutonomyController_v14.py
+# ROS 2 Humble port of sharedAutonomyController.py
 # -------------------------------------------------------------------------------------------------
 
 import math
