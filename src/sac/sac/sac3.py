@@ -93,7 +93,7 @@ class SharedAutonomyController(Node):
         self.base_r_values      = []   # Radial distances of scan points in base_link frame
         self.base_theta_values  = []   # Angles of scan points in base_link frame
         self.roi1_ranges        = []   # Region of Interest 1: outer boundary (expanded outward from obstacle)
-        self.roi2_ranges        = []   # Region of Interest 2: inner boundary (contracted toward centroid)
+        #self.roi2_ranges        = []   # Region of Interest 2: inner boundary (contracted toward centroid)
         self.centroids          = []   # Geometric centroids of each obstacle cluster
         self.closestPoints      = []   # Nearest point within each obstacle cluster to the robot
         self.rep_points         = []   # Computed repulsive force vectors, one per obstacle
@@ -125,7 +125,7 @@ class SharedAutonomyController(Node):
         self.marker_pub      = self.create_publisher(Marker,       '/obstacle_marker',   10)
         self.centroid_pub    = self.create_publisher(Marker,       '/centroid_marker',   10)
         self.scan1_pub       = self.create_publisher(LaserScan,    '/ROI1_laserScan',    10)
-        self.scan2_pub       = self.create_publisher(LaserScan,    '/ROI2_laserScan',    10)
+        #self.scan2_pub       = self.create_publisher(LaserScan,    '/ROI2_laserScan',    10)
         self.repForce_pub    = self.create_publisher(MarkerArray,  '/rep_marker',        10)
         self.resForce_pub    = self.create_publisher(Marker,       '/res_marker',        10)
         self.refSignal_pub   = self.create_publisher(Marker,       '/refSignal_marker',  10)
@@ -400,34 +400,34 @@ class SharedAutonomyController(Node):
                 if 0 <= index < len(self.roi1_ranges):
                     self.roi1_ranges[index] = roi1_r
 
-    def compute_roi2(self, points, centroid):
-        """
-        Compute Region of Interest 2 — the inner boundary (toward the obstacle interior).
+    # def compute_roi2(self, points, centroid):
+    #     """
+    #     Compute Region of Interest 2 — the inner boundary (toward the obstacle interior).
 
-        For each hull point, a boundary point is projected inward (toward the centroid)
-        by rho_0 metres. Written into self.roi2_ranges as a LaserScan-compatible array.
-        """
-        for point in points:
-            # Direction vector pointing inward (centroid minus hull point)
-            dir_x  = centroid.x - point.x
-            dir_y  = centroid.y - point.y
-            length = math.sqrt(dir_x**2 + dir_y**2)
-            if length == 0.0:
-                continue
+    #     For each hull point, a boundary point is projected inward (toward the centroid)
+    #     by rho_0 metres. Written into self.roi2_ranges as a LaserScan-compatible array.
+    #     """
+    #     for point in points:
+    #         # Direction vector pointing inward (centroid minus hull point)
+    #         dir_x  = centroid.x - point.x
+    #         dir_y  = centroid.y - point.y
+    #         length = math.sqrt(dir_x**2 + dir_y**2)
+    #         if length == 0.0:
+    #             continue
 
-            unit_x = dir_x / length
-            unit_y = dir_y / length
+    #         unit_x = dir_x / length
+    #         unit_y = dir_y / length
 
-            # Project rho_0 metres inward
-            roi2_x = point.x + unit_x * self.rho_0
-            roi2_y = point.y + unit_y * self.rho_0
-            roi2_r     = math.sqrt(roi2_x**2 + roi2_y**2)
-            roi2_theta = math.atan2(roi2_y, roi2_x)
+    #         # Project rho_0 metres inward
+    #         roi2_x = point.x + unit_x * self.rho_0
+    #         roi2_y = point.y + unit_y * self.rho_0
+    #         roi2_r     = math.sqrt(roi2_x**2 + roi2_y**2)
+    #         roi2_theta = math.atan2(roi2_y, roi2_x)
 
-            if self.front_minAngle <= roi2_theta <= self.front_maxAngle:
-                index = int((roi2_theta - self.front_minAngle) / self.front_angIncrement)
-                if 0 <= index < len(self.roi2_ranges):
-                    self.roi2_ranges[index] = roi2_r
+    #         if self.front_minAngle <= roi2_theta <= self.front_maxAngle:
+    #             index = int((roi2_theta - self.front_minAngle) / self.front_angIncrement)
+    #             if 0 <= index < len(self.roi2_ranges):
+    #                 self.roi2_ranges[index] = roi2_r
 
     def publish_roi1(self):
         """Publish ROI 1 (outer boundary) as a LaserScan on /ROI1_laserScan."""
@@ -442,18 +442,18 @@ class SharedAutonomyController(Node):
         scan1.ranges           = self.roi1_ranges
         self.scan1_pub.publish(scan1)
 
-    def publish_roi2(self):
-        """Publish ROI 2 (inner boundary) as a LaserScan on /ROI2_laserScan."""
-        scan2                  = LaserScan()
-        scan2.header.frame_id  = 'base_link'
-        scan2.header.stamp     = self.get_clock().now().to_msg()
-        scan2.angle_min        = self.front_minAngle
-        scan2.angle_max        = self.front_maxAngle
-        scan2.angle_increment  = self.front_angIncrement
-        scan2.range_min        = self.front_minRange
-        scan2.range_max        = self.front_maxRange
-        scan2.ranges           = self.roi2_ranges
-        self.scan2_pub.publish(scan2)
+    # def publish_roi2(self):
+    #     """Publish ROI 2 (inner boundary) as a LaserScan on /ROI2_laserScan."""
+    #     scan2                  = LaserScan()
+    #     scan2.header.frame_id  = 'base_link'
+    #     scan2.header.stamp     = self.get_clock().now().to_msg()
+    #     scan2.angle_min        = self.front_minAngle
+    #     scan2.angle_max        = self.front_maxAngle
+    #     scan2.angle_increment  = self.front_angIncrement
+    #     scan2.range_min        = self.front_minRange
+    #     scan2.range_max        = self.front_maxRange
+    #     scan2.ranges           = self.roi2_ranges
+    #     self.scan2_pub.publish(scan2)
 
     def publish_potentialFields(self):
         """
@@ -673,7 +673,7 @@ class SharedAutonomyController(Node):
         """
         # Initialize ROI range arrays with large sentinel values (no obstacle assumed)
         self.roi1_ranges = [5.5] * len(self.base_r_values)
-        self.roi2_ranges = [6.0] * len(self.base_r_values)
+        #self.roi2_ranges = [6.0] * len(self.base_r_values)
 
         points       = []   # Current cluster being built
         markerNumber = 0    # Unique ID for each obstacle marker
@@ -711,7 +711,7 @@ class SharedAutonomyController(Node):
                     self.record_closestPoint(points)
                     centroid = self.compute_centroid(points)
                     self.compute_roi1(points, centroid)
-                    self.compute_roi2(points, centroid)
+                    #self.compute_roi2(points, centroid)
                     points        = []
                     markerNumber += 1
 
@@ -737,7 +737,7 @@ class SharedAutonomyController(Node):
             self.record_closestPoint(points)
             centroid = self.compute_centroid(points)
             self.compute_roi1(points, centroid)
-            self.compute_roi2(points, centroid)
+            #self.compute_roi2(points, centroid)
 
     # =============================================================================
     # Main loop (250 Hz timer callback)
@@ -777,7 +777,7 @@ class SharedAutonomyController(Node):
         # --- Visualization ---
         self.publish_centroids()
         self.publish_roi1()
-        self.publish_roi2()
+        #self.publish_roi2()
 
         # --- Potential field computation ---
         self.publish_potentialFields()        # Per-obstacle repulsion vectors
